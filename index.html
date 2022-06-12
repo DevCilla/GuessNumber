@@ -7,41 +7,50 @@
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>	
 		<style>
-			body { background-color: #FAD7A0;
-			       font-family: 'American Typewriter';
-			     }
-			.error { color: red;}
+			body { 
+			    background-color: #FAD7A0;
+			    font-family: 'American Typewriter';
+			}
+			.error { 
+		            color: red;
+			}
 			.btn-secondary {
 			    color: #fff;
 			    background-color: #0a639d;
 			    border-color: #0a639d;
 			}
-			.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+			.btn-secondary:hover, 
+			.btn-secondary:focus, 
+			.btn-secondary:active, 
+			.btn-secondary.active, 
+			.open>.dropdown-toggle.btn-secondary {
 			    color: #fff;
 			    background-color: #00b3db;
 			    border-color: #285e8e;
 			}
-
 		</style>	
     </head>
-	<body onload="init()" class="container">
-		<form class="needs-validation" novalidate>
+	<body onload="init()" class="container-fluid">
+		<form>
 		    <h1 align="center" style="color: #504533;">Guess Number</h1>
 			<p align="center">Guess a number from <span id="minNum">0</span> to <span id="maxNum">100</span>.
 				<br>You have <span id="chance">10 chances</span>.
 			</p>	
-			<div class="row mx-auto" style="width:50%;">		
-				<div class="input-group mx-auto" style="width:40%;">		
+			<div class="row row-cols-md-1 row-cols-lg-3 justify-content-center">
+			    <div class="col-lg-auto"></div>		
+				<div class="input-group col-md-3 col-lg-3">		
 					<input id="guessVal" type="number" min="0" max="100" placeholder="enter a number" class="form-control" required>
 					<button type="button" class="btn btn-secondary" onClick="guess()">Guess</button>
-				</div>					
+				</div>	
+				<div class="col-lg-auto"></div>			
 			</div>			
-			<div class="row mx-auto" style="width:50%;">
+			<div class="row row-cols-md-1 row-cols-lg-3 justify-content-center" >
+				<div class="col-lg-auto"></div>		
 				<div align="center" class="error mx-auto" id="validMsg" style="visibility: hidden;"></div>
+				<div class="col-lg-auto"></div>		
 			</div>
 			<p align="center" id="msgField" style="margin-top: 25px;"></p>
 			<p id="footer" align="center"  style="display:none;"><button type="Reset" id="btnReset" onClick="restart()">Again</button></p>
 	    </form>	
-	</body>
-    
+	</body>    
 </html>

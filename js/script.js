@@ -74,10 +74,10 @@ function updateMinMaxVal(currVal) {
 	var preMaxVal = $('#maxNum').text();
 
 	if(preMinVal != 0 || preMaxVal != 100){
-        if (currVal < answer && currVal > preMinVal){
+        if (currVal < answer && (currVal > preMinVal || currVal < preMaxVal )){
         	$('#minNum').text(currVal);
 
-	    } else if (currVal > answer && currVal < preMaxVal){
+	    } else if (currVal > answer && (currVal < preMaxVal || currVal > preMinVal )){
 	    	$('#maxNum').text(currVal);
 
 	    } else {

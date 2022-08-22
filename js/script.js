@@ -2,6 +2,7 @@ var attemp = 1;
 var answer = Math.round ( Math.random() * 100, 0 );
 var usrInput;
 var msgField;
+var history = [];
 //console.log('answer: ' + answer);			
 
 function init() {
@@ -19,12 +20,9 @@ function guess() {
 	}
 
     if (attemp < 10){
-        if (guessVal < answer){
+        if (guessVal != answer){
         	updateMinMaxVal(guessVal);
         	updateChance();
-	    } else if (guessVal > answer){
-	    	updateMinMaxVal(guessVal);
-	    	updateChance();
 	    } else {
 	        msgField.innerHTML += guessVal + ' is the answer!<br>'; 
 	        showAgainBtn();  
@@ -70,6 +68,8 @@ function updateChance() {
 }
 
 function updateMinMaxVal(currVal) {
+	history.push(currVal);
+	//history.slice(-1)[0] > history.slice(-2)[0] ? 
 	var preMinVal = $('#minNum').text();
 	var preMaxVal = $('#maxNum').text();
 
@@ -85,15 +85,7 @@ function updateMinMaxVal(currVal) {
 	    }   
 
 	}else {
-        if (currVal < answer){
-        	$('#minNum').text(currVal);
-
-	    } else if (currVal > answer){
-	    	$('#maxNum').text(currVal);
-
-	    } else {
-	    	// remains unchange
-	    }   
+		(currVal != answer) && (currVal < answer) ? $('#minNum').text(currVal) : $('#maxNum').text(currVal);
 	}
 }
 

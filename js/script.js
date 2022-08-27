@@ -1,8 +1,8 @@
-var attemp = 1;
-var answer = Math.round ( Math.random() * 100, 0 );
-var usrInput;
-var msgField;
-var history = [];
+let attemp = 1;
+let answer = Math.round ( Math.random() * 100, 0 );
+let usrInput;
+let msgField;
+let history = [];
 //console.log('answer: ' + answer);			
 
 function init() {
@@ -11,7 +11,7 @@ function init() {
 }
 
 function guess() {
-	var guessVal = usrInput.value;
+	let guessVal = usrInput.value;
 
 	if (!validate(guessVal)) {
 		//console.log("invalidate value");	
@@ -20,7 +20,7 @@ function guess() {
 	}
 
     if (attemp < 10){
-        if (guessVal != answer){
+        if (guessVal !== answer){
         	updateMinMaxVal(guessVal);
         	updateChance();
 	    } else {
@@ -28,8 +28,8 @@ function guess() {
 	        showAgainBtn();  
 	    }   	    	   
 
-    } else if (attemp == 10){
-    	if (guessVal == answer){
+    } else if (attemp === 10){
+    	if (guessVal === answer){
     		msgField.innerHTML += guessVal + ' is the answer!<br>'; 
 	        msgField.innerHTML += '<br>Finally you\' ve got the answer!<br>' + 'Thanks for playing this game!'
 	    } else {
@@ -57,9 +57,9 @@ function validate(val) {
 }
 
 function updateChance() {	
-	if(attemp < 10 && attemp != 9){
+	if(attemp < 10 && attemp !== 9){
         $('#chance').text((10 - attemp) + " chances");
-	} else if(attemp == 9) {
+	} else if(attemp === 9) {
         $('#chance').text("one last chance");
     }else {
     	// remains unchange
@@ -70,10 +70,10 @@ function updateChance() {
 function updateMinMaxVal(currVal) {
 	history.push(currVal);
 	//history.slice(-1)[0] > history.slice(-2)[0] ? 
-	var preMinVal = $('#minNum').text();
-	var preMaxVal = $('#maxNum').text();
+	let preMinVal = $('#minNum').text();
+	let preMaxVal = $('#maxNum').text();
 
-	if(preMinVal != 0 || preMaxVal != 100){
+	if(preMinVal !== 0 || preMaxVal !== 100){
         if (currVal < answer && (currVal > preMinVal || currVal < preMaxVal )){
         	$('#minNum').text(currVal);
 
@@ -85,7 +85,7 @@ function updateMinMaxVal(currVal) {
 	    }   
 
 	}else {
-		(currVal != answer) && (currVal < answer) ? $('#minNum').text(currVal) : $('#maxNum').text(currVal);
+		(currVal !== answer) && (currVal < answer) ? $('#minNum').text(currVal) : $('#maxNum').text(currVal);
 	}
 }
 

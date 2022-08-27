@@ -2,7 +2,7 @@ let attemp = 1;
 let answer = Math.round ( Math.random() * 100, 0 );
 let usrInput;
 let msgField;
-let history = [];
+let guessHist = [];
 //console.log('answer: ' + answer);			
 
 function init() {
@@ -68,8 +68,8 @@ function updateChance() {
 }
 
 function updateMinMaxVal(currVal) {
-	history.push(currVal);
-	//history.slice(-1)[0] > history.slice(-2)[0] ? 
+	guessHist.push(currVal);
+	//guessHist.slice(-1)[0] > guessHist.slice(-2)[0] ? 
 	let preMinVal = $('#minNum').text();
 	let preMaxVal = $('#maxNum').text();
 
